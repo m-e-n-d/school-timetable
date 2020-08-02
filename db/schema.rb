@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_26_050514) do
+ActiveRecord::Schema.define(version: 2020_08_02_042916) do
+
+  create_table "periods", force: :cascade do |t|
+    t.string "weekday"
+    t.string "subject"
+    t.integer "period_num"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
