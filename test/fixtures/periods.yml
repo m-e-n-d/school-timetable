@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  weekday: MyString
+  subject: MyString
+  period_num: 
+  user_id: 
+
+two:
+  weekday: MyString
+  subject: MyString
+  period_num: 
+  user_id: 
