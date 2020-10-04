@@ -1,8 +1,9 @@
+<div type="border">
 <%= form_for(:session, url: login_path) do |f| %>
   <table>
     <tr>
       <td>
-        <%= image_tag 'user_icon.png', size: "30x30" %>
+        <%= image_tag 'user_icon.png', size: "100x100" %>
       </td>
       <td>
         <%= f.label :name %>
@@ -14,7 +15,7 @@
 
     <tr>
       <td>
-        <%= image_tag 'password_icon.png', size: "30x30" %>
+        <%= image_tag 'password_icon.png', size: "100x100" %>
       </td>
       <td>
         <%= f.label :password %>
@@ -32,3 +33,4 @@
     </tr>
   </table>
 <% end %>
+</div>
