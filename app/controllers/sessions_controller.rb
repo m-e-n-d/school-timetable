@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(login_params[:password_digest])
       login user
-      redirect_to root_url
+      redirect_to periods_url
     else
       render 'new'
     end

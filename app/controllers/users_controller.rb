@@ -24,7 +24,13 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(name: user_params[:name], password: user_params[:password])
+    @user = User.new(
+      name: user_params[:name],
+      password: user_params[:password],
+      periods_per_day: user_params[:periods_per_day],
+      show_saturday_flag: user_params[:show_saturday_flag],
+      show_sunday_flag: user_params[:show_sunday_flag]
+    )
 
     respond_to do |format|
       if @user.save
@@ -69,6 +75,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:name, :password)
+      params.require(:user).permit(:name, :password, :periods_per_day, :show_saturday_flag, :show_sunday_flag)
     end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_06_042908) do
+ActiveRecord::Schema.define(version: 2020_10_31_015637) do
 
   create_table "periods", force: :cascade do |t|
     t.string "weekday"
@@ -26,6 +26,9 @@ ActiveRecord::Schema.define(version: 2020_09_06_042908) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+    t.integer "periods_per_day"
+    t.boolean "show_saturday_flag"
+    t.boolean "show_sunday_flag"
   end
 
 end
