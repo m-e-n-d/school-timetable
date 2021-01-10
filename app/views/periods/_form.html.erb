@@ -12,26 +12,26 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :weekday %>
-    <%= form.text_field :weekday %>
+    <%= form.label "曜日" %>
+    <%= form.text_field :weekday, value: @target_weekday, readonly: true %>
   </div>
 
   <div class="field">
-    <%= form.label :subject %>
+    <%= form.label "教科" %>
     <%= form.text_field :subject %>
   </div>
 
   <div class="field">
-    <%= form.label :period_num %>
-    <%= form.text_field :period_num %>
+    <%= form.label "時間" %>
+    <%= form.text_field :period_num, value: @target_period_num, readonly: true %>
   </div>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+    <%= form.label "ユーザーID" %>
+    <%= form.text_field :user_id, value: @user.id, readonly: true %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "更新" %>
   </div>
 <% end %>

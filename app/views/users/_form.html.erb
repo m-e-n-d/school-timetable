@@ -12,19 +12,19 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label "ユーザーID" %>
     <%= form.text_field :name %>
-    <%= form.label :password %>
+    <%= form.label "パスワード" %>
     <%= form.password_field :password %>
-    <%= form.label :periods_per_day %>
+    <%= form.label "一日の授業数" %>
     <%= form.number_field :periods_per_day %>
-    <%= form.label :show_saturday_flag %>
+    <%= form.label "土曜日を表示" %>
     <%= form.check_box :show_saturday_flag %>
-    <%= form.label :show_sunday_flag %>
+    <%= form.label "日曜日を表示" %>
     <%= form.check_box :show_sunday_flag %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "更新" %>
   </div>
 <% end %>
