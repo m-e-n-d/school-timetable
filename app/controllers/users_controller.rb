@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    redirect_to root_path
   end
 
   # GET /users/1
@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
+    log_out
     @user = User.new
   end
 
@@ -24,11 +25,20 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(name: user_params[:name], password: user_params[:password])
+    @user = User.new(
+      name: user_params[:name],
+      password: user_params[:password],
+      periods_per_day: user_params[:periods_per_day],
+      show_saturday_flag: user_params[:show_saturday_flag],
+      show_sunday_flag: user_params[:show_sunday_flag]
+    )
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html {
+          login(@user)
+          redirect_to periods_path
+        }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -42,7 +52,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to periods_path }  
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit }
@@ -69,6 +79,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:name, :password)
+      params.require(:user).permit(:name, :password, :periods_per_day, :show_saturday_flag, :show_sunday_flag)
     end
 end
